@@ -18,5 +18,14 @@ namespace CSC240_06_01_BedAndBreakfast_MB
 
             }
         }
+        private void LincolnCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (lincolnCheckBox.Checked)
+            {
+                LincolnForm lincolnForm = new LincolnForm();
+                lincolnForm.ShowDialog();
+                lincolnCheckBox.Checked = false; 
+            }
+        }
     }
 }
