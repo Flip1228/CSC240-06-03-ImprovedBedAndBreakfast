@@ -30,6 +30,8 @@
         {
             welcomeLabel = new Label();
             rateLabel = new Label();
+            belleAirCheckBox = new CheckBox();
+            lincolnCheckBox = new CheckBox();
             SuspendLayout();
             // 
             // welcomeLabel
@@ -52,11 +54,36 @@
             rateLabel.TabIndex = 2;
             rateLabel.Text = "Check our rates";
             // 
+            // belleAirCheckBox
+            // 
+            belleAirCheckBox.AutoSize = true;
+            belleAirCheckBox.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
+            belleAirCheckBox.Location = new Point(79, 160);
+            belleAirCheckBox.Name = "belleAirCheckBox";
+            belleAirCheckBox.Size = new Size(173, 28);
+            belleAirCheckBox.TabIndex = 3;
+            belleAirCheckBox.Text = "Belle Aire Suite";
+            belleAirCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // lincolnCheckBox
+            // 
+            lincolnCheckBox.AutoSize = true;
+            lincolnCheckBox.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
+            lincolnCheckBox.Location = new Point(81, 203);
+            lincolnCheckBox.Name = "lincolnCheckBox";
+            lincolnCheckBox.Size = new Size(158, 28);
+            lincolnCheckBox.TabIndex = 4;
+            lincolnCheckBox.Text = "Lincoln Room";
+            lincolnCheckBox.UseVisualStyleBackColor = true;
+            // 
             // BaileysForm
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(438, 340);
+            Controls.Add(lincolnCheckBox);
+            Controls.Add(belleAirCheckBox);
             Controls.Add(rateLabel);
             Controls.Add(welcomeLabel);
             Name = "BaileysForm";
@@ -69,5 +96,7 @@
 
         private Label welcomeLabel;
         private Label rateLabel;
+        private CheckBox belleAirCheckBox;
+        private CheckBox lincolnCheckBox;
     }
 }
