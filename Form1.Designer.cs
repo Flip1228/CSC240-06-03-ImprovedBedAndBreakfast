@@ -64,6 +64,7 @@
             belleAirCheckBox.TabIndex = 3;
             belleAirCheckBox.Text = "Belle Aire Suite";
             belleAirCheckBox.UseVisualStyleBackColor = true;
+            belleAirCheckBox.CheckedChanged += BelleAirCheckBox_CheckedChanged;
             // 
             // lincolnCheckBox
             // 
