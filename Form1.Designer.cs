@@ -80,7 +80,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.AppWorkspace;
+            BackColor = Color.Yellow;
             ClientSize = new Size(438, 340);
             Controls.Add(lincolnCheckBox);
             Controls.Add(belleAirCheckBox);
