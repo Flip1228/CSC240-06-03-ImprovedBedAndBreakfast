@@ -1,6 +1,6 @@
 ﻿namespace CSC240_06_01_BedAndBreakfast_MB
 {
-    partial class Form1
+    partial class BaileysForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,12 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            welcomeLabel = new Label();
+            SuspendLayout();
+            // 
+            // welcomeLabel
+            // 
+            welcomeLabel.AutoSize = true;
+            welcomeLabel.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            welcomeLabel.Location = new Point(27, 48);
+            welcomeLabel.Name = "welcomeLabel";
+            welcomeLabel.Size = new Size(248, 29);
+            welcomeLabel.TabIndex = 0;
+            welcomeLabel.Text = "Welcome to Bailey's";
+            // 
+            // BaileysForm
+            // 
+            AutoScaleDimensions = new SizeF(9F, 23F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(438, 340);
+            Controls.Add(welcomeLabel);
+            Name = "BaileysForm";
+            Text = "Baileys Bed and Breakfast";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label welcomeLabel;
     }
 }
