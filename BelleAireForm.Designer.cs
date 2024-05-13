@@ -55,11 +55,11 @@
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Yellow;
-            ClientSize = new Size(367, 217);
+            ClientSize = new Size(358, 217);
             Controls.Add(belleAirePriceLabel);
             Controls.Add(belleAireDescriptionLabel);
             Name = "BelleAireForm";
-            Text = "BelleAireForm";
+            Text = "BelleAire Suit";
             ResumeLayout(false);
             PerformLayout();
         }
