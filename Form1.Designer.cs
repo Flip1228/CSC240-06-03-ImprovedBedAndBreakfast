@@ -56,6 +56,7 @@
             // 
             // belleAireCheckBox
             // 
+
             belleAireCheckBox.AutoSize = true;
             belleAireCheckBox.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
             belleAireCheckBox.Location = new Point(79, 160);
@@ -65,6 +66,17 @@
             belleAireCheckBox.Text = "Belle Aire Suite";
             belleAireCheckBox.UseVisualStyleBackColor = true;
             belleAireCheckBox.CheckedChanged += BelleAireCheckBox_CheckedChanged;
+
+            belleAirCheckBox.AutoSize = true;
+            belleAirCheckBox.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
+            belleAirCheckBox.Location = new Point(79, 160);
+            belleAirCheckBox.Name = "belleAirCheckBox";
+            belleAirCheckBox.Size = new Size(173, 28);
+            belleAirCheckBox.TabIndex = 3;
+            belleAirCheckBox.Text = "Belle Aire Suite";
+            belleAirCheckBox.UseVisualStyleBackColor = true;
+            belleAirCheckBox.CheckedChanged += BelleAirCheckBox_CheckedChanged;
+
             // 
             // lincolnCheckBox
             // 

@@ -7,6 +7,7 @@ namespace CSC240_06_01_BedAndBreakfast_MB
             InitializeComponent();
         }
 
+
         private void BelleAireCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (belleAireCheckBox.Checked)
@@ -14,6 +15,7 @@ namespace CSC240_06_01_BedAndBreakfast_MB
                 BelleAireForm belleAireForm = new BelleAireForm();
                 belleAireForm.ShowDialog();
                 belleAireCheckBox.Checked = false;
+
             }
         }
     }
