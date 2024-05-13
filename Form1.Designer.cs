@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             welcomeLabel = new Label();
+            rateLabel = new Label();
             SuspendLayout();
             // 
             // welcomeLabel
@@ -41,11 +42,22 @@
             welcomeLabel.TabIndex = 0;
             welcomeLabel.Text = "Welcome to Bailey's";
             // 
+            // rateLabel
+            // 
+            rateLabel.AutoSize = true;
+            rateLabel.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            rateLabel.Location = new Point(79, 110);
+            rateLabel.Name = "rateLabel";
+            rateLabel.Size = new Size(164, 25);
+            rateLabel.TabIndex = 2;
+            rateLabel.Text = "Check our rates";
+            // 
             // BaileysForm
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(438, 340);
+            Controls.Add(rateLabel);
             Controls.Add(welcomeLabel);
             Name = "BaileysForm";
             Text = "Baileys Bed and Breakfast";
@@ -56,5 +68,6 @@
         #endregion
 
         private Label welcomeLabel;
+        private Label rateLabel;
     }
 }
