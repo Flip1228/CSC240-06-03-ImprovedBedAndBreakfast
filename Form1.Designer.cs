@@ -30,7 +30,7 @@
         {
             welcomeLabel = new Label();
             rateLabel = new Label();
-            belleAirCheckBox = new CheckBox();
+            belleAireCheckBox = new CheckBox();
             lincolnCheckBox = new CheckBox();
             SuspendLayout();
             // 
@@ -54,17 +54,21 @@
             rateLabel.TabIndex = 2;
             rateLabel.Text = "Check our rates";
             // 
-            // belleAirCheckBox
+            // belleAireCheckBox
             // 
-            belleAirCheckBox.AutoSize = true;
-            belleAirCheckBox.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
-            belleAirCheckBox.Location = new Point(79, 160);
-            belleAirCheckBox.Name = "belleAirCheckBox";
-            belleAirCheckBox.Size = new Size(173, 28);
-            belleAirCheckBox.TabIndex = 3;
-            belleAirCheckBox.Text = "Belle Aire Suite";
-            belleAirCheckBox.UseVisualStyleBackColor = true;
-            belleAirCheckBox.CheckedChanged += BelleAirCheckBox_CheckedChanged;
+
+            belleAireCheckBox.AutoSize = true;
+            belleAireCheckBox.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
+            belleAireCheckBox.Location = new Point(79, 160);
+            belleAireCheckBox.Name = "belleAireCheckBox";
+            belleAireCheckBox.Size = new Size(173, 28);
+            belleAireCheckBox.TabIndex = 3;
+            belleAireCheckBox.Text = "Belle Aire Suite";
+            belleAireCheckBox.UseVisualStyleBackColor = true;
+            belleAireCheckBox.CheckedChanged += BelleAireCheckBox_CheckedChanged;
+
+
+
             // 
             // lincolnCheckBox
             // 
@@ -82,9 +86,9 @@
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Yellow;
-            ClientSize = new Size(438, 340);
+            ClientSize = new Size(342, 340);
             Controls.Add(lincolnCheckBox);
-            Controls.Add(belleAirCheckBox);
+            Controls.Add(belleAireCheckBox);
             Controls.Add(rateLabel);
             Controls.Add(welcomeLabel);
             Name = "BaileysForm";
@@ -97,7 +101,7 @@
 
         private Label welcomeLabel;
         private Label rateLabel;
-        private CheckBox belleAirCheckBox;
+        private CheckBox belleAireCheckBox;
         private CheckBox lincolnCheckBox;
     }
 }
