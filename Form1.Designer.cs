@@ -77,6 +77,7 @@
             lincolnCheckBox.TabIndex = 4;
             lincolnCheckBox.Text = "Lincoln Room";
             lincolnCheckBox.UseVisualStyleBackColor = true;
+            lincolnCheckBox.CheckedChanged += LincolnCheckBox_CheckedChanged;
             // 
             // mealButton
             // 
@@ -104,6 +105,7 @@
             ResumeLayout(false);
             PerformLayout();
         }
+
 
         #endregion
 
