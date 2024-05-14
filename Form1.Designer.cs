@@ -32,6 +32,7 @@
             rateLabel = new Label();
             belleAireCheckBox = new CheckBox();
             lincolnCheckBox = new CheckBox();
+            mealButton = new Button();
             SuspendLayout();
             // 
             // welcomeLabel
@@ -56,7 +57,6 @@
             // 
             // belleAireCheckBox
             // 
-
             belleAireCheckBox.AutoSize = true;
             belleAireCheckBox.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold);
             belleAireCheckBox.Location = new Point(79, 160);
@@ -66,9 +66,6 @@
             belleAireCheckBox.Text = "Belle Aire Suite";
             belleAireCheckBox.UseVisualStyleBackColor = true;
             belleAireCheckBox.CheckedChanged += BelleAireCheckBox_CheckedChanged;
-
-
-
             // 
             // lincolnCheckBox
             // 
@@ -81,12 +78,22 @@
             lincolnCheckBox.Text = "Lincoln Room";
             lincolnCheckBox.UseVisualStyleBackColor = true;
             // 
+            // mealButton
+            // 
+            mealButton.Location = new Point(25, 246);
+            mealButton.Name = "mealButton";
+            mealButton.Size = new Size(303, 73);
+            mealButton.TabIndex = 5;
+            mealButton.Text = "Click for meal options";
+            mealButton.UseVisualStyleBackColor = true;
+            // 
             // BaileysForm
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Yellow;
             ClientSize = new Size(342, 340);
+            Controls.Add(mealButton);
             Controls.Add(lincolnCheckBox);
             Controls.Add(belleAireCheckBox);
             Controls.Add(rateLabel);
@@ -103,5 +110,6 @@
         private Label rateLabel;
         private CheckBox belleAireCheckBox;
         private CheckBox lincolnCheckBox;
+        private Button mealButton;
     }
 }
