@@ -80,12 +80,13 @@
             // 
             // mealButton
             // 
-            mealButton.Location = new Point(25, 246);
+            mealButton.Location = new Point(27, 255);
             mealButton.Name = "mealButton";
             mealButton.Size = new Size(303, 73);
             mealButton.TabIndex = 5;
             mealButton.Text = "Click for meal options";
             mealButton.UseVisualStyleBackColor = true;
+            mealButton.Click += mealButton_Click;
             // 
             // BaileysForm
             // 
