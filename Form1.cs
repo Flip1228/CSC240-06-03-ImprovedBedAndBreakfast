@@ -24,8 +24,14 @@ namespace CSC240_06_01_BedAndBreakfast_MB
             {
                 LincolnForm lincolnForm = new LincolnForm();
                 lincolnForm.ShowDialog();
-                lincolnCheckBox.Checked = false; 
+                lincolnCheckBox.Checked = false;
             }
+        }
+
+        private void mealButton_Click(object sender, EventArgs e)
+        {
+            BreakfastOptionForm breakfastform = new BreakfastOptionForm();
+            breakfastform.ShowDialog();
         }
     }
 }
