@@ -39,7 +39,7 @@
             label2.Font = new Font("Tempus Sans ITC", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(93, 20);
             label2.Name = "label2";
-            label2.Size = new Size(247, 42);
+            label2.Size = new Size(257, 42);
             label2.TabIndex = 1;
             label2.Text = "Room Selection";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -47,19 +47,20 @@
             // selectButton
             // 
             selectButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            selectButton.Location = new Point(124, 173);
+            selectButton.Location = new Point(124, 158);
             selectButton.Name = "selectButton";
-            selectButton.Size = new Size(173, 38);
+            selectButton.Size = new Size(183, 38);
             selectButton.TabIndex = 0;
             selectButton.Text = "Select";
             selectButton.UseVisualStyleBackColor = true;
+            selectButton.Click += selectButton_Click;
             // 
             // RoomLayout
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(421, 223);
+            ClientSize = new Size(431, 208);
             Controls.Add(selectButton);
             Controls.Add(label2);
             Name = "RoomLayout";
