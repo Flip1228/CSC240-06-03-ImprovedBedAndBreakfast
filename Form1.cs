@@ -8,7 +8,8 @@ namespace CSC240_06_01_BedAndBreakfast_MB
         }
 
         public int SelectedRoomIndex => roomBox.SelectedIndex;
-        public string SelectedRoomText => roomBox.SelectedItem.ToString();
+
+        public string SelectedRoomText => roomBox.SelectedItem?.ToString() ?? "No room selected";
         private void GuestBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = Convert.ToInt32(guestBox.SelectedIndex);
@@ -39,11 +40,16 @@ namespace CSC240_06_01_BedAndBreakfast_MB
 
         private void layoutButton_Click(object sender, EventArgs e)
         {
-            RoomLayout layout = new RoomLayout();
-            layout.SelectedRoomIndex = this.SelectedRoomIndex;
-            layout.SelectedRoomText = this.SelectedRoomText;
-            layout.ShowDialog();
+            if (guestBox.SelectedItem != null && roomBox.SelectedItem != null)
+            {
 
+                RoomLayout layout = new RoomLayout();
+                layout.SelectedRoomIndex = this.SelectedRoomIndex;
+                layout.SelectedRoomText = this.SelectedRoomText;
+                layout.ShowDialog();
+            }
+            else
+                MessageBox.Show("Please select Guests and Rooms.");           
         }
     }
 }
