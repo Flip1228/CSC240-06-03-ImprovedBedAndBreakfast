@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             label2 = new Label();
-            selectButton = new Button();
             SuspendLayout();
             // 
             // label2
@@ -44,24 +43,12 @@
             label2.Text = "Room Selection";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // selectButton
-            // 
-            selectButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            selectButton.Location = new Point(124, 158);
-            selectButton.Name = "selectButton";
-            selectButton.Size = new Size(183, 38);
-            selectButton.TabIndex = 0;
-            selectButton.Text = "Select";
-            selectButton.UseVisualStyleBackColor = true;
-            selectButton.Click += selectButton_Click;
-            // 
             // RoomLayout
             // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(431, 208);
-            Controls.Add(selectButton);
             Controls.Add(label2);
             Name = "RoomLayout";
             Text = "Room Layout";
@@ -71,6 +58,5 @@
 
         #endregion
         private Label label2;
-        private Button selectButton;
     }
 }
