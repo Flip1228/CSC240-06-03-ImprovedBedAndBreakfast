@@ -7,7 +7,7 @@ namespace CSC240_06_01_BedAndBreakfast_MB
             InitializeComponent();
         }
 
-        public double totalPrice;
+
 
         public string SelectedRoomText => roomBox.SelectedItem?.ToString() ?? "No room selected";
         private void GuestBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,14 +55,15 @@ namespace CSC240_06_01_BedAndBreakfast_MB
         private void SetPrice(object sender, FormClosedEventArgs e)
         {
             RoomLayout layout = (RoomLayout)sender;
-            totalPrice = layout.price;
+            double roomPrice = layout.roomPrice;
+            priceLabel.Text = "Price: ";
+            priceLabel.Text += roomPrice.ToString("C");  // switch this when done with meal options
+            priceLabel.Visible = true;
         }
             
         private void CheckinButton_Click(object sender, EventArgs e)
         {
-
-            priceLabel.Text += totalPrice.ToString("C");
-            priceLabel.Visible = true;
+            MessageBox.Show("Take Money and give key");
         }
     }
 }
