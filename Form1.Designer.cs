@@ -129,6 +129,7 @@
             checkinButton.TabIndex = 9;
             checkinButton.Text = "Check in";
             checkinButton.UseVisualStyleBackColor = false;
+            checkinButton.Click += CheckinButton_Click;
             // 
             // priceLabel
             // 
@@ -162,6 +163,8 @@
             ResumeLayout(false);
             PerformLayout();
         }
+
+
 
 
 

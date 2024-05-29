@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Security.Authentication;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace CSC240_06_01_BedAndBreakfast_MB
+﻿namespace CSC240_06_01_BedAndBreakfast_MB
 {
     public partial class RoomLayout : Form
     {
@@ -18,16 +6,10 @@ namespace CSC240_06_01_BedAndBreakfast_MB
         {
             InitializeComponent();
         }
-        public double price = 0.00;
+        public double price { get; set; } = 0.00;
         public int roomCount = 0;
-        private int roomIndex;
         private string text;
 
-        public int SelectedRoomIndex
-        {
-            get => roomIndex;
-            set => roomIndex = value;
-        }
         public string SelectedRoomText
         {
             get => text;
@@ -44,7 +26,7 @@ namespace CSC240_06_01_BedAndBreakfast_MB
                 ComboBox roomComboBox = new ComboBox();
 
                 roomComboBox.Name = "roomComboBox" + i;
-                roomComboBox.Items.AddRange(new object[] { "Test 1", "Test 2" });
+                roomComboBox.Items.AddRange(new object[] { "Single", "Single King", "Double", "BelleAire Suit", "Licoln Suit" });
                 roomComboBox.Size = new Size(260, 31);
                 roomComboBox.Location = new Point(123, 78 + i * 40);
                 Controls.Add(roomComboBox);
@@ -65,7 +47,6 @@ namespace CSC240_06_01_BedAndBreakfast_MB
             roomInfo.Click += RoomInfo_Click;
             Controls.Add(roomInfo);
 
-            //  selectButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             Button selectButton = new Button();
             selectButton.Location = new Point(124, 118 + roomCount * 40);
             selectButton.Name = "selectButton";
@@ -84,34 +65,55 @@ namespace CSC240_06_01_BedAndBreakfast_MB
 
         private void GetRoom_Information()
         {
-            List<Object> selectedItems = new List<object>();
-            if (selectedItems == null)
-                MessageBox.Show("Test");
-            else
+            List<int> selectedItems = new List<int>();
+
+
+            foreach (Control control in Controls)
             {
-                foreach (Control control in Controls)
+                if (control is ComboBox)
                 {
-                    if (control is ComboBox)
+                    if (((ComboBox)control).SelectedItem == null)
                     {
-                        ComboBox roomProperties = (ComboBox)control;
-                        selectedItems.Add(roomProperties.SelectedItem);
-
+                        MessageBox.Show("Please select all the rooms.");
+                        return;
                     }
-                }
-
-                object[] room = selectedItems.ToArray();
-                int count = 1;
-
-                foreach (object item in room)
-                {
-
-                    if (item == "Test 1")
-                        MessageBox.Show("Room " + Convert.ToString(count));
-                    count++;
-
+                    else
+                        selectedItems.Add(((ComboBox)control).SelectedIndex);
                 }
             }
-           
+
+            int[] room = selectedItems.ToArray();
+            int count = 0;
+
+            foreach (int item in room)
+            {
+                switch (item)
+                {
+                    case 0:
+                        MessageBox.Show("Room " + (room[count] + 1) + " is a single");
+                        price += 50.00;
+                        count++;
+                        break;
+                    case 1:
+                        MessageBox.Show("Room " + (room[count] + 1) + " is a Single King");
+                        price += 100.00;
+                        count++;
+                        break;
+                    case 2:
+                        MessageBox.Show("Room " + (room[count] + 1) + " is a Double");
+                        count++;
+                        break;
+                    case 3:
+                        MessageBox.Show("Room " + (room[count] + 1) + " is the BelleAire Suit");
+                        count++;
+                        break;
+                    case 4:
+                        MessageBox.Show("Room " + (room[count] + 1) + " is The lincoln suit");
+                        count++;
+                        break;
+                
+                }
+            }
         }
 
         private void RoomLayout_Load(object sender, EventArgs e)
@@ -127,7 +129,7 @@ namespace CSC240_06_01_BedAndBreakfast_MB
             {
                 width = Math.Max(width, control.PreferredSize.Width);
                 if (control is ComboBox or Button)
-                height += control.PreferredSize.Height;
+                    height += control.PreferredSize.Height;
             }
 
             int padding = 0;
@@ -137,9 +139,13 @@ namespace CSC240_06_01_BedAndBreakfast_MB
 
         }
 
-        private void selectButton_Click(object sender, EventArgs e)
+        private void selectButton_Click(object? sender, EventArgs e)
         {
             GetRoom_Information();
+            this.Close();
         }
     }
 }
+
+
+
