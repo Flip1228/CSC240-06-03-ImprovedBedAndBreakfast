@@ -9,27 +9,46 @@ namespace CSC240_06_01_BedAndBreakfast_MB
         {
             InitializeComponent();
         }
-        public double price { get; set; } = 0.00;
+        public double roomPrice { get; set; } = 0.00;
+        public double singleRoomPrice;
+        public double singleKingRoomPrice;
+        public double doubleRoomPrice;
+        public double belleAireRoomPrice;
+        public double lincolnRoomPrice;
         public int roomCount = 0;
         private string text;
-
+        
         public string SelectedRoomText
         {
             get => text;
             set => text = value;
         }
+        
+        private void RoomLayout_Load(object sender, EventArgs e)
+        {
+            INIREAD();
+            ComboBox_Creation();
+            Resize();
+        }
+
         private void ComboBox_Creation()
         {
 
-            int test = Convert.ToInt32(text);
+            int numOfBoxes = Convert.ToInt32(text);
 
-            for (int i = 0; i < test; i++)
+            for (int i = 0; i < numOfBoxes ; i++)
             {
                 string label = "Room " + (i + 1);
                 ComboBox roomComboBox = new ComboBox();
 
                 roomComboBox.Name = "roomComboBox" + i;
-                roomComboBox.Items.AddRange(new object[] { "Single", "Single King", "Double", "BelleAire Suit", "Licoln Suit" });
+                roomComboBox.Items.AddRange(new object[] 
+                { "Single -------------------- " + singleRoomPrice.ToString("C"),
+                  "Single king --------------- " + singleKingRoomPrice.ToString("C"),
+                  "Double ------------------- " + doubleRoomPrice.ToString("C"),
+                  "BelleAire suit ------------ " + belleAireRoomPrice.ToString("C"),
+                  "Licoln suit --------------- " + lincolnRoomPrice.ToString("C") });
+
                 roomComboBox.Size = new Size(260, 31);
                 roomComboBox.Location = new Point(123, 78 + i * 40);
                 Controls.Add(roomComboBox);
@@ -69,10 +88,6 @@ namespace CSC240_06_01_BedAndBreakfast_MB
         private void GetRoom_Information()
         {
 
-            string iniFilePath = "C:\\Users\\flip2\\Desktop\\test.ini";
-            IniFile iniFile = new IniFile(iniFilePath);
-            double singleRoomPrice = Convert.ToDouble(iniFile.Read("Room Prices", "Single"));
-
             List<int> selectedItems = new List<int>();
             foreach (Control control in Controls)
             {
@@ -89,42 +104,49 @@ namespace CSC240_06_01_BedAndBreakfast_MB
             }
 
             int[] room = selectedItems.ToArray();
-            int count = 0;
 
             foreach (int item in room)
             {
                 switch (item)
                 {
                     case 0:
-                        MessageBox.Show("Room " + (room[count] + 1) + " is a single");
-                        price += singleRoomPrice;
-                        count++;
+                        roomPrice += singleRoomPrice; 
                         break;
                     case 1:
-                        MessageBox.Show("Room " + (room[count] + 1) + " is a Single King");
-                        price += 100.00;
-                        count++;
+                        roomPrice += singleKingRoomPrice;
                         break;
                     case 2:
-                        MessageBox.Show("Room " + (room[count] + 1) + " is a Double");
-                        count++;
+                        roomPrice += doubleRoomPrice;
                         break;
                     case 3:
-                        MessageBox.Show("Room " + (room[count] + 1) + " is the BelleAire Suit");
-                        count++;
+                        roomPrice += belleAireRoomPrice;
                         break;
                     case 4:
-                        MessageBox.Show("Room " + (room[count] + 1) + " is The lincoln suit");
-                        count++;
+                        roomPrice += lincolnRoomPrice;
                         break;
 
                 }
             }
         }
 
-        private void RoomLayout_Load(object sender, EventArgs e)
+        private void selectButton_Click(object? sender, EventArgs e)
         {
-            ComboBox_Creation();
+            GetRoom_Information();
+            this.Close();
+        }
+        private void INIREAD()
+        {
+            string iniFilePath = "C:\\Users\\flip2\\Desktop\\test.ini";
+            IniFile iniFile = new IniFile(iniFilePath);
+            singleRoomPrice = Convert.ToDouble(iniFile.Read("Room Prices", "Single"));
+            singleKingRoomPrice = Convert.ToDouble(iniFile.Read("Room Prices", "Single king"));
+            doubleRoomPrice = Convert.ToDouble(iniFile.Read("Room Prices", "Double"));
+            belleAireRoomPrice = Convert.ToDouble(iniFile.Read("Room Prices", "BelleAire suit"));
+            lincolnRoomPrice = Convert.ToDouble(iniFile.Read("Room Prices", "Lincoln suit"));
+        }
+
+        public void Resize()
+        {
             this.AutoSizeMode = AutoSizeMode.GrowOnly;
             this.AutoSize = true;
 
@@ -142,16 +164,17 @@ namespace CSC240_06_01_BedAndBreakfast_MB
             width += padding;
             height += padding;
             this.Size = new Size(width, height + 50);
-
-        }
-
-        private void selectButton_Click(object? sender, EventArgs e)
-        {
-            GetRoom_Information();
-            this.Close();
         }
     }
 }
+
+
+
+
+
+
+
+
 public class IniFile
 {
     public string Path { get; }
