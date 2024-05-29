@@ -41,6 +41,7 @@ namespace CSC240_06_01_BedAndBreakfast_MB
                 string label = "Room " + (i + 1);
                 ComboBox roomComboBox = new ComboBox();
 
+              roomComboBox.Anchor = AnchorStyles.Top
                 roomComboBox.Name = "roomComboBox" + i;
                 roomComboBox.Items.AddRange(new object[]
                 { "Single  " + singleRoomPrice.ToString("C"),
@@ -54,6 +55,7 @@ namespace CSC240_06_01_BedAndBreakfast_MB
                 Controls.Add(roomComboBox);
 
                 Label roomLabel = new Label();
+                roomLabel.AutoSize = true;
                 roomLabel.Location = new Point(25, 78 + i * 40);
                 roomLabel.Name = "roomLabel" + i;
                 roomLabel.Size = new Size(79, 23);
