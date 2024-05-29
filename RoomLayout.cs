@@ -1,4 +1,7 @@
-﻿namespace CSC240_06_01_BedAndBreakfast_MB
+﻿using System.Runtime.InteropServices;
+using System.Text;
+
+namespace CSC240_06_01_BedAndBreakfast_MB
 {
     public partial class RoomLayout : Form
     {
@@ -65,9 +68,12 @@
 
         private void GetRoom_Information()
         {
+
+            string iniFilePath = "C:\\Users\\flip2\\Desktop\\test.ini";
+            IniFile iniFile = new IniFile(iniFilePath);
+            double singleRoomPrice = Convert.ToDouble(iniFile.Read("Room Prices", "Single"));
+
             List<int> selectedItems = new List<int>();
-
-
             foreach (Control control in Controls)
             {
                 if (control is ComboBox)
@@ -91,7 +97,7 @@
                 {
                     case 0:
                         MessageBox.Show("Room " + (room[count] + 1) + " is a single");
-                        price += 50.00;
+                        price += singleRoomPrice;
                         count++;
                         break;
                     case 1:
@@ -111,7 +117,7 @@
                         MessageBox.Show("Room " + (room[count] + 1) + " is The lincoln suit");
                         count++;
                         break;
-                
+
                 }
             }
         }
@@ -144,6 +150,27 @@
             GetRoom_Information();
             this.Close();
         }
+    }
+}
+public class IniFile
+{
+    public string Path { get; }
+
+    // Import the GetPrivateProfileString method
+    [DllImport("kernel32")]
+    private static extern long GetPrivateProfileString(string section, string key, string @default, StringBuilder retVal, int size, string filePath);
+
+    public IniFile(string path)
+    {
+        Path = path;
+    }
+
+    // Method to read a value from the .ini file
+    public string Read(string section, string key)
+    {
+        var retVal = new StringBuilder(255);
+        GetPrivateProfileString(section, key, "", retVal, 255, Path);
+        return retVal.ToString();
     }
 }
 
