@@ -28,12 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "MealOptions";
+            mealOptionsLabel = new Label();
+            SuspendLayout();
+            // 
+            // mealOptionsLabel
+            // 
+            mealOptionsLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            mealOptionsLabel.AutoSize = true;
+            mealOptionsLabel.Font = new Font("Tempus Sans ITC", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            mealOptionsLabel.Location = new Point(161, 20);
+            mealOptionsLabel.Name = "mealOptionsLabel";
+            mealOptionsLabel.Size = new Size(212, 42);
+            mealOptionsLabel.TabIndex = 0;
+            mealOptionsLabel.Text = "Meal Options";
+            // 
+            // MealOptions
+            // 
+            AutoScaleDimensions = new SizeF(9F, 23F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Goldenrod;
+            ClientSize = new Size(544, 212);
+            Controls.Add(mealOptionsLabel);
+            Name = "MealOptions";
+            Text = "MealOptions";
+            Load += MealOptions_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label mealOptionsLabel;
     }
 }

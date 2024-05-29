@@ -43,10 +43,10 @@
             // welcomeLabel
             // 
             welcomeLabel.AutoSize = true;
-            welcomeLabel.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            welcomeLabel.Location = new Point(116, 26);
+            welcomeLabel.Font = new Font("Tempus Sans ITC", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            welcomeLabel.Location = new Point(105, 22);
             welcomeLabel.Name = "welcomeLabel";
-            welcomeLabel.Size = new Size(248, 29);
+            welcomeLabel.Size = new Size(311, 42);
             welcomeLabel.TabIndex = 0;
             welcomeLabel.Text = "Welcome to Bailey's";
             // 
@@ -100,7 +100,7 @@
             // 
             layoutButton.BackColor = Color.DarkGoldenrod;
             layoutButton.FlatStyle = FlatStyle.Flat;
-            layoutButton.Location = new Point(281, 240);
+            layoutButton.Location = new Point(21, 241);
             layoutButton.Name = "layoutButton";
             layoutButton.Size = new Size(204, 33);
             layoutButton.TabIndex = 7;
@@ -112,12 +112,13 @@
             // 
             mealOptionsButton.BackColor = Color.DarkGoldenrod;
             mealOptionsButton.FlatStyle = FlatStyle.Flat;
-            mealOptionsButton.Location = new Point(13, 240);
+            mealOptionsButton.Location = new Point(277, 241);
             mealOptionsButton.Name = "mealOptionsButton";
             mealOptionsButton.Size = new Size(212, 33);
             mealOptionsButton.TabIndex = 8;
             mealOptionsButton.Text = "Select meal options";
             mealOptionsButton.UseVisualStyleBackColor = false;
+            mealOptionsButton.Click += MealOptions_Window;
             // 
             // checkinButton
             // 
@@ -135,7 +136,7 @@
             // 
             priceLabel.AutoSize = true;
             priceLabel.Font = new Font("Tempus Sans ITC", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            priceLabel.Location = new Point(135, 304);
+            priceLabel.Location = new Point(160, 312);
             priceLabel.Name = "priceLabel";
             priceLabel.Size = new Size(90, 35);
             priceLabel.TabIndex = 10;
@@ -163,6 +164,8 @@
             ResumeLayout(false);
             PerformLayout();
         }
+
+
 
 
 

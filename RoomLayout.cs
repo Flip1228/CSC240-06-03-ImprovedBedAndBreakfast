@@ -17,13 +17,13 @@ namespace CSC240_06_01_BedAndBreakfast_MB
         public double lincolnRoomPrice;
         public int roomCount = 0;
         private string text;
-        
+
         public string SelectedRoomText
         {
             get => text;
             set => text = value;
         }
-        
+
         private void RoomLayout_Load(object sender, EventArgs e)
         {
             INIREAD();
@@ -36,18 +36,18 @@ namespace CSC240_06_01_BedAndBreakfast_MB
 
             int numOfBoxes = Convert.ToInt32(text);
 
-            for (int i = 0; i < numOfBoxes ; i++)
+            for (int i = 0; i < numOfBoxes; i++)
             {
                 string label = "Room " + (i + 1);
                 ComboBox roomComboBox = new ComboBox();
 
                 roomComboBox.Name = "roomComboBox" + i;
-                roomComboBox.Items.AddRange(new object[] 
-                { "Single -------------------- " + singleRoomPrice.ToString("C"),
-                  "Single king --------------- " + singleKingRoomPrice.ToString("C"),
-                  "Double ------------------- " + doubleRoomPrice.ToString("C"),
-                  "BelleAire suit ------------ " + belleAireRoomPrice.ToString("C"),
-                  "Licoln suit --------------- " + lincolnRoomPrice.ToString("C") });
+                roomComboBox.Items.AddRange(new object[]
+                { "Single  " + singleRoomPrice.ToString("C"),
+                  "Single king  " + singleKingRoomPrice.ToString("C"),
+                  "Double  " + doubleRoomPrice.ToString("C"),
+                  "BelleAire suit  " + belleAireRoomPrice.ToString("C"),
+                  "Licoln suit  " + lincolnRoomPrice.ToString("C") });
 
                 roomComboBox.Size = new Size(260, 31);
                 roomComboBox.Location = new Point(123, 78 + i * 40);
@@ -61,13 +61,7 @@ namespace CSC240_06_01_BedAndBreakfast_MB
                 Controls.Add(roomLabel);
                 roomCount++;
             }
-            LinkLabel roomInfo = new LinkLabel();
-            roomInfo.Location = new Point(144, 86 + roomCount * 40);
-            roomInfo.Name = "roomInfo_link";
-            roomInfo.Size = new Size(150, 23);
-            roomInfo.Text = "Room Information";
-            roomInfo.Click += RoomInfo_Click;
-            Controls.Add(roomInfo);
+
 
             Button selectButton = new Button();
             selectButton.Location = new Point(124, 118 + roomCount * 40);
@@ -80,10 +74,7 @@ namespace CSC240_06_01_BedAndBreakfast_MB
             Controls.Add(selectButton);
         }
 
-        private void RoomInfo_Click(object? sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+
 
         private void GetRoom_Information()
         {
@@ -110,7 +101,7 @@ namespace CSC240_06_01_BedAndBreakfast_MB
                 switch (item)
                 {
                     case 0:
-                        roomPrice += singleRoomPrice; 
+                        roomPrice += singleRoomPrice;
                         break;
                     case 1:
                         roomPrice += singleKingRoomPrice;

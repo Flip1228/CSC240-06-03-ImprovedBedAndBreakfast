@@ -48,6 +48,7 @@
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
+            BackColor = Color.Goldenrod;
             ClientSize = new Size(431, 208);
             Controls.Add(label2);
             Name = "RoomLayout";
