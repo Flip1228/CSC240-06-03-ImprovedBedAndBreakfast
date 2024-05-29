@@ -1,3 +1,6 @@
+using System.Diagnostics.Eventing.Reader;
+using System.Numerics;
+
 namespace CSC240_06_01_BedAndBreakfast_MB
 {
     public partial class BaileysForm : Form
@@ -10,11 +13,18 @@ namespace CSC240_06_01_BedAndBreakfast_MB
 
 
         public string SelectedRoomText => roomBox.SelectedItem?.ToString() ?? "No room selected";
+        public double roomPrice;
+        public double mealPrice;
+      
+        
+        
         private void GuestBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = Convert.ToInt32(guestBox.SelectedIndex);
             RoomBox_DropDown(selectedIndex);
         }
+
+
         private void RoomBox_DropDown(int selectedIndex)
         {
 
@@ -38,6 +48,18 @@ namespace CSC240_06_01_BedAndBreakfast_MB
 
         }
 
+
+
+        public void SetRoomPrice(object sender, FormClosedEventArgs e)
+        {
+            RoomLayout layout = (RoomLayout)sender;
+            roomPrice = layout.roomPrice;
+            priceLabel.Text = "Price: ";
+            priceLabel.Text += roomPrice.ToString("C");  // switch this when done with meal options
+            priceLabel.Visible = true;
+        }
+
+
         private void layoutButton_Click(object sender, EventArgs e)
         {
             if (guestBox.SelectedItem != null && roomBox.SelectedItem != null)
@@ -45,25 +67,51 @@ namespace CSC240_06_01_BedAndBreakfast_MB
 
                 RoomLayout layout = new RoomLayout();
                 layout.SelectedRoomText = this.SelectedRoomText;
-                layout.FormClosed += SetPrice;
+                layout.FormClosed += SetRoomPrice;
                 layout.ShowDialog();
             }
             else
                 MessageBox.Show("Please select Guests and Rooms.");
         }
 
-        private void SetPrice(object sender, FormClosedEventArgs e)
+        public void SetMealPrice(object sender, FormClosedEventArgs e)
         {
-            RoomLayout layout = (RoomLayout)sender;
-            double roomPrice = layout.roomPrice;
-            priceLabel.Text = "Price: ";
-            priceLabel.Text += roomPrice.ToString("C");  // switch this when done with meal options
-            priceLabel.Visible = true;
+                MealOptions mealOptions = (MealOptions)sender;
+                mealPrice = mealOptions.mealPrice;
+                priceLabel.Text = "Price: ";
+                double totalPrice = mealPrice + roomPrice;
+                priceLabel.Text += totalPrice.ToString("C");
         }
-            
+       
+        private void MealOptions_Window(object sender, EventArgs e)
+        {
+            if (roomPrice != 0 && SelectedRoomText != "No room selected")
+            {
+                MealOptions mealOptions = new MealOptions();
+                mealOptions.SelectedmealText = this.SelectedRoomText;
+                mealOptions.FormClosed += SetMealPrice;
+                mealOptions.ShowDialog();
+            }
+            else
+                MessageBox.Show("Must select Guest, Rooms, and Room Layout's before continuing.");
+        }
+
         private void CheckinButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Take Money and give key");
+            double total = mealPrice + roomPrice;
+            DialogResult result;
+            if (roomPrice != 0)
+            {
+                if (mealPrice == 0)
+                {
+                    result = MessageBox.Show("Are you sure the free meal option is correct?", "Free Meal", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                        MessageBox.Show("Collect " + total.ToString("C") + " and make keys for room's");
+                }
+            }
+            else
+                MessageBox.Show("Please make sure all options are selected!");
+            
         }
     }
 }
